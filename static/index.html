@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>{{project_name}}</title>
+</head>
+
+<body>
+    <h1>{{project_name}}</h1>
+    {{#each logos}}
+    <div>
+        <div>{{this.name}}</div>
+        <img src="static/images/{{this.image_path}}" width="200">
+    </div>
+    {{/each}}
+</body>
+
+</html
