@@ -1,7 +1,7 @@
 use actix_web::{web, HttpResponse};
-use diesel::{r2d2::ConnectionManager, PgConnection};
+
 use handlebars::Handlebars;
-use r2d2::Pool;
+
 use diesel::prelude::*;
 
 use crate::models::{RustLogos, IndexTemplateData, DBPool};

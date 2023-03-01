@@ -1,19 +1,18 @@
-use actix_files::{Files, NamedFile};
-use actix_web::web::Data;
-use actix_web::{web, App, HttpResponse, HttpServer, Responder};
-use diesel::prelude::*;
-use diesel::{
-    r2d2::{ConnectionManager, Error},
-    PgConnection,
-};
-use handlebars::Handlebars;
-use std::{io::Result};
-
 mod models;
 mod pages;
 mod schema;
 mod util;
 
+use actix_files::{Files};
+use actix_web::web::Data;
+use actix_web::{web, App, HttpServer};
+
+
+use handlebars::Handlebars;
+use std::{io::Result};
+
+
+use crate::pages::add::{add_logo_page, insert_loago,view_loago};
 use crate::pages::hello::hello;
 use crate::pages::index::index;
 use crate::util::db_util::get_pool;
@@ -40,6 +39,9 @@ async fn main() -> Result<()> {
             .app_data(Data::new(pool.clone()))
             .service(Files::new("/static", "static"))
             .route("/", web::get().to(index))
+            .route("/add", web::get().to(add_logo_page))
+            .route("/add_logo", web::post().to(insert_loago))
+            .route("/logo/{id}", web::get().to(view_loago))
             .route("/hello", web::get().to(hello))
     })
     .bind("127.0.0.1:4400")?

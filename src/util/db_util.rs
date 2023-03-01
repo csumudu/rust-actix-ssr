@@ -1,6 +1,5 @@
 use std::{env, time::Duration};
-
-use actix_web::Error;
+use std::io::Error;
 use diesel::{r2d2::ConnectionManager, PgConnection};
 use r2d2::Pool;
 

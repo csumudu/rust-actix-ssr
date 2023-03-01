@@ -7,6 +7,6 @@ CREATE TABLE rust_logos(
 
 
 
-insert into rust_logos(name,image_path)values ('Speed','1.jpeg');
-insert into rust_logos(name,image_path)values ('Secure','2.jpeg');
-insert into rust_logos(name,image_path)values ('No GC','3.jpeg');
+insert into rust_logos(name,image_path)values ('Speed','static/images/1.jpeg');
+insert into rust_logos(name,image_path)values ('Secure','static/images/2.jpeg');
+insert into rust_logos(name,image_path)values ('No GC','static/images/3.jpeg');
