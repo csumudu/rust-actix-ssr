@@ -2,6 +2,7 @@ mod models;
 mod pages;
 mod schema;
 mod util;
+mod api;
 
 use actix_files::{Files};
 use actix_web::web::Data;
@@ -16,6 +17,7 @@ use crate::pages::add::{add_logo_page, insert_loago,view_loago};
 use crate::pages::hello::hello;
 use crate::pages::index::index;
 use crate::util::db_util::get_pool;
+use crate::api::logos::{get_all_logos};
 
 #[actix_web::main]
 async fn main() -> Result<()> {
@@ -43,6 +45,7 @@ async fn main() -> Result<()> {
             .route("/add_logo", web::post().to(insert_loago))
             .route("/logo/{id}", web::get().to(view_loago))
             .route("/hello", web::get().to(hello))
+            .route("/api/logos",web::get().to(get_all_logos))
     })
     .bind("127.0.0.1:4400")?
     .run()

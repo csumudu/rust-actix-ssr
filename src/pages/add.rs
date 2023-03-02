@@ -7,7 +7,7 @@ use handlebars::Handlebars;
 
 use crate::models::{DBPool, RustLogosIns};
 
-use crate::schema::rust_logos::{dsl::*, columns};
+use crate::schema::rust_logos::{dsl::*};
 
 pub async fn add_logo_page(hb: web::Data<Handlebars<'_>>) -> HttpResponse {
     let body = hb.render("add_logo", &{}).unwrap();
