@@ -225,6 +225,7 @@ dependencies = [
  "env_logger",
  "handlebars",
  "r2d2",
+ "regex",
  "serde",
  "serde_json",
 ]

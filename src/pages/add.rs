@@ -4,10 +4,11 @@ use crate::models::RustLogos;
 use actix_web::{http, web, Error, HttpResponse};
 use diesel::prelude::*;
 use handlebars::Handlebars;
+use regex::Regex;
 
 use crate::models::{DBPool, RustLogosIns};
 
-use crate::schema::rust_logos::{dsl::*};
+use crate::schema::rust_logos::dsl::*;
 
 pub async fn add_logo_page(hb: web::Data<Handlebars<'_>>) -> HttpResponse {
     let body = hb.render("add_logo", &{}).unwrap();
@@ -30,11 +31,16 @@ pub async fn insert_loago(
     print!("File saved");
 
     let field_map: HashMap<_, _> = parts.texts.as_pairs().into_iter().collect();
-
+    let path = file.to_string_lossy().to_string().replace("\\", "/");
+    
+    println!("Image Path---->{}", path);
+    
+    
     let draft_logo = RustLogosIns {
-        image_path: file.to_string_lossy().to_string(),
+        image_path: path,
         name: field_map.get("name").unwrap().to_string(),
     };
+    
 
     web::block(move || {
         diesel::insert_into(rust_logos)

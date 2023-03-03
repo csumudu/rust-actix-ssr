@@ -6,25 +6,51 @@
     <title>{{project_name}}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+        <style>
+            .con{
+                background-color: #eceff1;
+                padding: 50px;
+            }
+        </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Add Logo</h1>
-        <form class="col-md-6" action="add_logo" method="Post" enctype="multipart/form-data">
-            <div>
-                <label class="form-label" for="name">Name:</label>
-                <input class="form-control" type="text" name="name" id="name" value="" />
+    <div class="container-lg">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">Rust Image Gallery </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        </li>
+                        
+                    </ul>
+                </div>
             </div>
-            <div>
-                <label class="form-label" for="image">Image:</label>
-                <input class="form-control" type="file" name="image" id="image" value="" />
-            </div>
-            <div class="pt-5">
-                <button class="btn btn-primary" type="submit">Submit</button>
-            </div>
-        </form>
+        </nav>
+        <div class="con">
+            <form class="col-md-6" action="add_logo" method="Post" enctype="multipart/form-data">
+                <div>
+                    <label class="form-label" for="name">Name:</label>
+                    <input class="form-control" type="text" name="name" id="name" value="" />
+                </div>
+                <div>
+                    <label class="form-label" for="image">Image:</label>
+                    <input class="form-control" type="file" name="image" id="image" value="" />
+                </div>
+                <div class="pt-5">
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+            </form>
+
+        </div>
     </div>
 </body>
 
-</html
+</html>

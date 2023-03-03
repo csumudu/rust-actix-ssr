@@ -14,5 +14,6 @@ diesel = {version = "2.0.3",features = ["postgres","r2d2"]}
 env_logger = "0.10.0"
 handlebars = { version = "4.3.6", features = ["dir_source"] }
 r2d2 = "0.8.10"
+regex = "1.7.1"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0.93"

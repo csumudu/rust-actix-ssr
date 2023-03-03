@@ -18,7 +18,7 @@ pub async fn index(hb: web::Data<Handlebars<'_>>, pool: web::Data<DBPool>) -> Ht
         .unwrap();
 
      let data_frm_db = IndexTemplateData {
-        project_name: "Catdex".to_string(),
+        project_name: "Rust Image Gallery".to_string(),
         logos: logos.unwrap(),
     };
 
